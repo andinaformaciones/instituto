@@ -447,218 +447,677 @@
 
 
 
-            <h3>Cursos Disponibles</h3>
+            <div class="course" id="curso-hipnosis">
+            <i class="fas fa-brain"></i>
             <h3>Hipnosis</h3>
             <img src="https://i.ibb.co/ZzGt96P/hipnosis-curse.jpg" alt="Descripción de la imagen">
-            <p>Sumérgete en el fascinante mundo de la hipnosis y descubre sus aplicaciones terapéuticas.¡Explora los misterios de la mente y desbloquea tu potencial ilimitado con nuestro fascinante curso de hipnosis! Únete a nosotros en un viaje transformador hacia el conocimiento profundo de las técnicas hipnóticas, donde descubrirás el arte de influenciar positivamente la psique humana.
-
+            <p id="intro-curso-hipnosis">
+                Sumérgete en el fascinante mundo de la hipnosis y descubre sus aplicaciones terapéuticas. ¡Explora los misterios de la mente y desbloquea tu potencial ilimitado con nuestro fascinante curso de hipnosis! 
+            </p>
+            <button onclick="mostrarMas('curso-hipnosis')" id="mostrar-mas-btn-curso-hipnosis">Leer más</button>
+            <p id="resto-curso-hipnosis" style="display:none;">
+                Únete a nosotros en un viaje transformador hacia el conocimiento profundo de las técnicas hipnóticas, donde descubrirás el arte de influenciar positivamente la psique humana.
                 En este curso dinámico, te sumergirás en los fundamentos de la hipnosis, aprendiendo a guiar a otros y a ti mismo hacia estados mentales alterados para lograr objetivos específicos. Descubrirás el poder de las sugestiones, la relajación profunda y cómo aplicar estas habilidades de manera ética y efectiva.
-                
+        
                 Nuestros instructores expertos te brindarán las herramientas esenciales para comprender y utilizar la hipnosis de manera segura. Desarrollarás habilidades prácticas para mejorar la concentración, superar bloqueos mentales y fomentar el cambio positivo en áreas como la gestión del estrés, los hábitos no deseados y el autoempoderamiento.
-                
-                Este curso no solo te proporcionará conocimientos teóricos sólidos, sino que también te sumergirá en experiencias prácticas que te permitirán aplicar la hipnosis de manera efectiva desde el primer día. ¡Prepárate para desbloquear el potencial de la mente y convertirte en un maestro de la hipnosis! ¡El viaje hacia la transformación mental comienza aquí!</p>
+        
+                Este curso no solo te proporcionará conocimientos teóricos sólidos, sino que también te sumergirá en experiencias prácticas que te permitirán aplicar la hipnosis de manera efectiva desde el primer día. ¡Prepárate para desbloquear el potencial de la mente y convertirte en un maestro de la hipnosis! ¡El viaje hacia la transformación mental comienza aquí!
+            </p>
+            <button onclick="mostrarMenos('curso-hipnosis')" id="mostrar-menos-btn-curso-hipnosis" style="display:none;">Mostrar menos</button>
         </div>
+        
+        <script>
+            function mostrarMas(cursoId) {
+                document.getElementById('intro-' + cursoId).style.display = 'none';
+                document.getElementById('resto-' + cursoId).style.display = 'block';
+                document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+                document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+            }
+        
+            function mostrarMenos(cursoId) {
+                document.getElementById('intro-' + cursoId).style.display = 'block';
+                document.getElementById('resto-' + cursoId).style.display = 'none';
+                document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+                document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+             // Desplazar al principio del curso
+        document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+        </script>
+        
 
-        <div class="course">
-         
-            <h3>Psicología Holística</h3>
-            <img src="https://i.ibb.co/M87bDmb/4.jpg" alt="Descripción de la imagen">
-            <p>Integra diferentes enfoques psicológicos para lograr un entendimiento completo de la mente y el espíritu, Sumérgete en un viaje profundo hacia la comprensión integral de la mente, el cuerpo y el espíritu, explorando las conexiones fundamentales que dan forma a nuestra experiencia humana.
 
-                En este curso único, desbloquearás las puertas de la psicología holística, fusionando sabiduría ancestral y enfoques contemporáneos para brindarte una visión completa del bienestar. Aprenderás a integrar diversas perspectivas psicológicas, desde la psicología positiva hasta la espiritualidad, proporcionándote herramientas prácticas para transformar vidas.
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="course" id="curso-psicologia-holistica">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Psicología Holística</h3>
+    <img src="https://i.ibb.co/M87bDmb/4.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-psicologia-holistica">
+        Integra diferentes enfoques psicológicos para lograr un entendimiento completo de la mente y el espíritu, Sumérgete en un viaje profundo hacia la comprensión integral de la mente, el cuerpo y el espíritu,
+    </p>
+    <button onclick="mostrarMas('curso-psicologia-holistica')" id="mostrar-mas-btn-curso-psicologia-holistica">Leer más</button>
+    <p id="resto-curso-psicologia-holistica" style="display:none;">
+        explorando las conexiones fundamentales que dan forma a nuestra experiencia humana. En este curso único, desbloquearás las puertas de la psicología holística, fusionando sabiduría ancestral y enfoques contemporáneos para brindarte una visión completa del bienestar. Aprenderás a integrar diversas perspectivas psicológicas, desde la psicología positiva hasta la espiritualidad, proporcionándote herramientas prácticas para transformar vidas.
                 
                 Nuestros instructores expertos te guiarán a través de prácticas que fomentarán un equilibrio entre cuerpo y mente, permitiéndote abordar los desafíos desde una perspectiva holística. Descubrirás cómo la alimentación, la espiritualidad, la mente y las emociones están interconectadas, creando un mapa integral para el bienestar personal y el desarrollo humano.
                 
-                Este curso no solo enriquecerá tus conocimientos, sino que te empoderará para ayudar a otros a alcanzar su máximo potencial. Prepárate para embarcarte en una experiencia educativa transformadora que te abrirá las puertas a una nueva comprensión de la psicología y te equipará con las herramientas necesarias para guiar a otros hacia un bienestar integral. ¡Tu viaje hacia la psicología holística comienza ahora!.</p>
-        </div>
+                Este curso no solo enriquecerá tus conocimientos, sino que te empoderará para ayudar a otros a alcanzar su máximo potencial. Prepárate para embarcarte en una experiencia educativa transformadora que te abrirá las puertas a una nueva comprensión de la psicología y te equipará con las herramientas necesarias para guiar a otros hacia un bienestar integral. ¡Tu viaje hacia la psicología holística comienza ahora!.
+    </p>
+    <button onclick="mostrarMenos('curso-psicologia-holistica')" id="mostrar-menos-btn-curso-psicologia-holistica" style="display:none;">Mostrar menos</button>
+</div>
 
-        <div class="course">
-            
-            <h3>Lectura de Cartas Astrales</h3>
-            <img src="https://i.ibb.co/7p0pBPg/5.jpg" alt="Descripción de la imagen">
-            <p>curso de Lectura de Cartas Astrales! Sumérgete en el vasto universo de la astrología y aprende a desentrañar los secretos que las estrellas tienen reservados para ti.
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
 
-                En este curso, explorarás el arte ancestral de interpretar cartas astrales, desvelando las conexiones cósmicas que influyen en tu vida y las de quienes te rodean. Aprenderás a traducir el lenguaje celestial de planetas, signos y casas, descubriendo patrones y revelaciones que iluminarán tu camino.
-                
-                Nuestros expertos te guiarán a través de la interpretación precisa de cartas astrales, proporcionándote las habilidades necesarias para comprender aspectos clave de la personalidad, relaciones, carrera y destinos individuales. Desde la posición de los planetas hasta las complejidades de las casas astrales, este curso te brindará un conocimiento profundo y práctico.
-                
-                Ya seas un principiante curioso o un entusiasta de la astrología en busca de expandir tus habilidades, este curso te llevará más allá de las estrellas. Desbloquea el poder de la astrología y despierta una nueva comprensión de ti mismo y del universo que te rodea. ¡Tu viaje cósmico comienza aquí.</p> 
-        </div>
-        <div class="course">
-            
-            <h3>Astrología Avanzada</h3>
-            <img src="https://i.ibb.co/pJHXfTn/6.webp" alt="Descripción de la imagen">
-            <p>
-                Curso de Astrología: Explorando los Misterios Cósmicos
-                
-                En el vasto lienzo del universo, la astrología emerge como una disciplina fascinante que busca descifrar los secretos del cosmos y su influencia en la vida de los seres humanos. Este curso de astrología invita a los participantes a sumergirse en un viaje apasionante a través de los planetas, las constelaciones y las energías cósmicas que dan forma a nuestra
-                existencia. Módulo 1: Introducción a la Astrología
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
-                En las primeras sesiones, los estudiantes explorarán los fundamentos de la astrología, desde la historia de su origen hasta su evolución a lo largo de los siglos. Se abordarán conceptos clave, como los elementos, modalidades y las doce casas astrológicas, sentando las bases para una comprensión sólida de esta antigua ciencia.
-                Módulo 2: Los Planetas y sus Arquetipos
 
-                Cada planeta, con su propio carácter distintivo, desempeña un papel vital en la astrología. Este módulo sumergirá a los participantes en los arquetipos asociados a cada planeta, explorando cómo influyen en la personalidad y el destino de las personas. Se estudiarán las energías planetarias, desde la vibrante Marte hasta el místico Neptuno.
-                Módulo 3: El Zodiaco y las Doce Constelaciones
 
-                El Zodiaco, un círculo divino que rodea la Tierra, se convertirá en el foco central de este módulo. Los participantes aprenderán sobre las doce constelaciones zodiacales y su conexión con los signos astrológicos. Se explorarán las características únicas de cada signo, permitiendo a los estudiantes comprender cómo influyen en la personalidad y las relaciones.
-                El futuro, según la astrología, puede revelarse a través de la interpretación de los ciclos planetarios y la astrología predictiva. Los estudiantes aprenderán a anticipar eventos significativos en la vida de una persona y a comprender las influencias cíclicas que dan forma a su destino.
 
-                Este curso de astrología no solo proporcionará conocimientos teóricos, sino que también fomentará la práctica a través de ejercicios y análisis de casos. Al finalizar, los participantes estarán equipados con las habilidades necesarias para explorar los misterios del cosmos y aplicar la astrología como una herramienta valiosa para el autoconocimiento y la comprensión del entorno que los rodea. ¡Prepárate para desentrañar 
-                los secretos del universo y descubrir el fascinante lenguaje de las estrellas.<p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="course" id="curso-lectura-cartas-astrales">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Lectura de Cartas Astrales</h3>
+    <img src="https://i.ibb.co/7p0pBPg/5.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-lectura-cartas-astrales">
+        Lectura de Cartas Astrales! Sumérgete en el vasto universo de la astrología y aprende a desentrañar los secretos que las estrellas tienen reservados para ti.
+    </p>
+    <button onclick="mostrarMas('curso-lectura-cartas-astrales')" id="mostrar-mas-btn-curso-lectura-cartas-astrales">Leer más</button>
+    <p id="resto-curso-lectura-cartas-astrales" style="display:none;">
+        En este curso, explorarás el arte ancestral de interpretar cartas astrales, desvelando las conexiones cósmicas que influyen en tu vida y las de quienes te rodean. Aprenderás a traducir el lenguaje celestial de planetas, signos y casas, descubriendo patrones y revelaciones que iluminarán tu camino.
+
+        Nuestros expertos te guiarán a través de la interpretación precisa de cartas astrales, proporcionándote las habilidades necesarias para comprender aspectos clave de la personalidad, relaciones, carrera y destinos individuales. Desde la posición de los planetas hasta las complejidades de las casas astrales, este curso te brindará un conocimiento profundo y práctico.
+
+        Ya seas un principiante curioso o un entusiasta de la astrología en busca de expandir tus habilidades, este curso te llevará más allá de las estrellas. Desbloquea el poder de la astrología y despierta una nueva comprensión de ti mismo y del universo que te rodea. ¡Tu viaje cósmico comienza aquí.
+    </p>
+    <button onclick="mostrarMenos('curso-lectura-cartas-astrales')" id="mostrar-menos-btn-curso-lectura-cartas-astrales" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+<div class="course" id="curso-astrologia-avanzada">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Astrología Avanzada</h3>
+    <img src="https://i.ibb.co/pJHXfTn/6.webp" alt="Descripción de la imagen">
+    <p id="intro-curso-astrologia-avanzada">
+        Explorando los Misterios Cósmicos
+
+        En el vasto lienzo del universo, la astrología emerge como una disciplina fascinante que busca descifrar los secretos del cosmos y su influencia en la vida de los seres humanos. 
+    </p>
+    <button onclick="mostrarMas('curso-astrologia-avanzada')" id="mostrar-mas-btn-curso-astrologia-avanzada">Leer más</button>
+    <p id="resto-curso-astrologia-avanzada" style="display:none;">
+        Este curso de astrología invita a los participantes a sumergirse en un viaje apasionante a través de los planetas, las constelaciones y las energías cósmicas que dan forma a nuestra existencia.
+       
+        Módulo 1: Introducción a la Astrología
+
+        En las primeras sesiones, los estudiantes explorarán los fundamentos de la astrología, desde la historia de su origen hasta su evolución a lo largo de los siglos. Se abordarán conceptos clave, como los elementos, modalidades y las doce casas astrológicas, sentando las bases para una comprensión sólida de esta antigua ciencia.
+        Módulo 2: Los Planetas y sus Arquetipos
+
+        Cada planeta, con su propio carácter distintivo, desempeña un papel vital en la astrología. Este módulo sumergirá a los participantes en los arquetipos asociados a cada planeta, explorando cómo influyen en la personalidad y el destino de las personas. Se estudiarán las energías planetarias, desde la vibrante Marte hasta el místico Neptuno.
+        Módulo 3: El Zodiaco y las Doce Constelaciones
+
+        El Zodiaco, un círculo divino que rodea la Tierra, se convertirá en el foco central de este módulo. Los participantes aprenderán sobre las doce constelaciones zodiacales y su conexión con los signos astrológicos. Se explorarán las características únicas de cada signo, permitiendo a los estudiantes comprender cómo influyen en la personalidad y las relaciones.
+        El futuro, según la astrología, puede revelarse a través de la interpretación de los ciclos planetarios y la astrología predictiva. Los estudiantes aprenderán a anticipar eventos significativos en la vida de una persona y a comprender las influencias cíclicas que dan forma a su destino.
+
+        Este curso de astrología no solo proporcionará conocimientos teóricos, sino que también fomentará la práctica a través de ejercicios y análisis de casos. Al finalizar, los participantes estarán equipados con las habilidades necesarias para explorar los misterios del cosmos y aplicar la astrología como una herramienta valiosa para el autoconocimiento y la comprensión del entorno que los rodea. ¡Prepárate para desentrañar los secretos del universo y descubrir el fascinante lenguaje de las estrellas.
+    </p>
+    <button onclick="mostrarMenos('curso-astrologia-avanzada')" id="mostrar-menos-btn-curso-astrologia-avanzada" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+<div class="course" id="curso-metafisica-filosofia">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Introducción a la Metafísica y la Filosofía</h3>
+    <img src="https://i.ibb.co/1M7CF2f/7.webp" alt="Descripción de la imagen">
+    <p id="intro-curso-metafisica-filosofia">
+        Este curso invita a los participantes a un viaje intelectual que fusiona la metafísica y la filosofía, explorando las dimensiones más profundas de la existencia. 
+    </p>
+    <button onclick="mostrarMas('curso-metafisica-filosofia')" id="mostrar-mas-btn-curso-metafisica-filosofia">Leer más</button>
+    <p id="resto-curso-metafisica-filosofia" style="display:none;">
+        A lo largo de las sesiones, se abordarán conceptos fundamentales de la metafísica, como la naturaleza de la realidad, la conciencia y la relación entre mente y materia.
+        Módulo 1: Introducción a la Metafísica
         
-        </div>
-                <div class="course">
-                   
-                    <h3>Introducción a la Metafísica y la Filosofía</h3>
-                    <img src="https://i.ibb.co/1M7CF2f/7.webp" alt="Descripción de la imagen">
-                    <p>  Este curso invita a los participantes a un viaje intelectual que fusiona la metafísica y la filosofía, explorando las dimensiones más profundas de la existencia. A lo largo de las sesiones, se abordarán conceptos fundamentales de la metafísica, como la naturaleza de la realidad, la conciencia y la relación entre mente y materia.
-
-                        Módulo 1: Introducción a la Metafísica
-                        
-                        En las primeras clases, los estudiantes se sumergirán en los principios esenciales de la metafísica, explorando la idea de la realidad más allá de lo físico y las conexiones entre lo observable y lo no observable.
-                        
-                        Módulo 2: Filosofía de la Mente y la Conciencia
-                        
-                        Este módulo se centrará en la filosofía de la mente, investigando la naturaleza de la conciencia, la percepción y la relación entre el cuerpo y la mente. Se explorarán teorías clave que han moldeado nuestra comprensión de la mente humana a lo largo de la historia.
-                        
-                        Módulo 3: Ontología y Naturaleza de la Realidad
-                        
-                        Los participantes analizarán la ontología, explorando la naturaleza última de la realidad y los diversos modos de existencia. Se abordarán cuestiones fundamentales sobre la esencia de la existencia y la conexión entre el ser y la realidad.
-                        
-                        Módulo 4: Ética Metafísica y Filosofía de la Vida
-                        
-                        Este módulo se adentrará en la ética metafísica, examinando las preguntas fundamentales sobre el bien y el mal, así como la conexión entre la metafísica y la filosofía de la vida. Se discutirán perspectivas éticas y su aplicación en la toma de decisiones.
-                        
-                        Módulo 5: Integración y Aplicación Práctica
-                        
-                        El curso concluirá con una exploración de la integración práctica de los conceptos metafísicos y filosóficos en la vida cotidiana. Los participantes aprenderán a aplicar estas ideas en la toma de decisiones, el desarrollo personal y la comprensión más profunda de su propio ser.
-                        
-                        Este curso proporcionará a los estudiantes una base sólida en la metafísica y la filosofía, estimulando la reflexión crítica y fomentando la aplicación práctica de estos conocimientos en la vida diaria. ¡Prepárate para explorar las profundidades del ser y cuestionar las percepciones convencionales del mundo que te rodea!<p>
+        En las primeras clases, los estudiantes se sumergirán en los principios esenciales de la metafísica, explorando la idea de la realidad más allá de lo físico y las conexiones entre lo observable y lo no observable.
         
-     </div>
-     <div class="course">
+        Módulo 2: Filosofía de la Mente y la Conciencia
         
-        <h3>Espiritualidad y Teología Avanzada</h3>
-        <img src="https://i.ibb.co/ZVpHBFp/8.jpg" alt="Descripción de la imagen">
-        <p> A través de módulos cuidadosamente diseñados, los estudiantes serán guiados hacia una comprensión más rica y significativa de los aspectos espirituales de la existencia y las complejidades teológicas que definen la relación entre el ser humano y lo divino.
+        Este módulo se centrará en la filosofía de la mente, investigando la naturaleza de la conciencia, la percepción y la relación entre el cuerpo y la mente. Se explorarán teorías clave que han moldeado nuestra comprensión de la mente humana a lo largo de la historia.
+        
+        Módulo 3: Ontología y Naturaleza de la Realidad
+        
+        Los participantes analizarán la ontología, explorando la naturaleza última de la realidad y los diversos modos de existencia. Se abordarán cuestiones fundamentales sobre la esencia de la existencia y la conexión entre el ser y la realidad.
+        
+        Módulo 4: Ética Metafísica y Filosofía de la Vida
+        
+        Este módulo se adentrará en la ética metafísica, examinando las preguntas fundamentales sobre el bien y el mal, así como la conexión entre la metafísica y la filosofía de la vida. Se discutirán perspectivas éticas y su aplicación en la toma de decisiones.
+        
+        Módulo 5: Integración y Aplicación Práctica
+        
+        El curso concluirá con una exploración de la integración práctica de los conceptos metafísicos y filosóficos en la vida cotidiana. Los participantes aprenderán a aplicar estas ideas en la toma de decisiones, el desarrollo personal y la comprensión más profunda de su propio ser.
+        
+        Este curso proporcionará a los estudiantes una base sólida en la metafísica y la filosofía, estimulando la reflexión crítica y fomentando la aplicación práctica de estos conocimientos en la vida diaria. ¡Prepárate para explorar las profundidades del ser y cuestionar las percepciones convencionales del mundo que te rodea!
+    </p>
+    <button onclick="mostrarMenos('curso-metafisica-filosofia')" id="mostrar-menos-btn-curso-metafisica-filosofia" style="display:none;">Mostrar menos</button>
+</div>
 
-            Módulo 1: Fundamentos Esotéricos de la Espiritualidad
-            
-            Este módulo introduce a los participantes en los principios esotéricos que subyacen en diversas tradiciones espirituales, explorando la conexión entre la espiritualidad y la sabiduría ancestral. Se abordarán prácticas meditativas avanzadas y métodos para expandir la conciencia.
-            
-            Módulo 2: Teología Avanzada y la Naturaleza de lo Divino
-            
-            Los estudiantes explorarán conceptos teológicos avanzados, analizando la naturaleza de lo divino desde perspectivas teológicas múltiples. Se abordarán cuestiones fundamentales como la omnisciencia, la omnipotencia y la naturaleza trascendental de la divinidad.
-            
-            Módulo 3: Misterios Cósmicos y Espiritualidad Cuántica
-            
-            Este módulo fascinante examinará la convergencia entre la espiritualidad y la física cuántica, explorando las implicaciones de la conciencia en la creación y la conexión entre la realidad material y la espiritualidad cósmica.
-            
-            Módulo 4: Misticismo y Prácticas Avanzadas de Transformación Interior
-            
-            Los participantes serán guiados a través de prácticas místicas y métodos avanzados de transformación interior. Se explorarán las experiencias extáticas, la conexión con la divinidad y la trascendencia de los límites del ego.
-            
-            Módulo 5: Diálogo Interreligioso y Unidad Espiritual
-            
-            El curso culminará con un enfoque en el diálogo interreligioso y la búsqueda de la unidad espiritual. Se explorarán similitudes fundamentales entre diversas tradiciones y se fomentará un entendimiento inclusivo que trascienda las diferencias doctrinales.
-            
-            Este curso avanzado está diseñado para aquellos que buscan una comprensión profunda de la espiritualidad y la teología, integrando sabiduría ancestral con perspectivas vanguardistas. Los participantes se embarcarán en un viaje de autodescubrimiento y expansión de la conciencia, trascendiendo las fronteras convencionales 
-            del pensamiento espiritual y teológico. ¡Prepárate para una inmersión transformadora en las dimensiones más elevadas del conocimiento espiritual!<p>
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
 
-    </div>
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
-        <div class="course">
-            
-            <h3>mindfulness y meditaciones</h3>
-            <img src="https://i.ibb.co/qgNF27p/9.jpg" alt="Descripción de la imagen">
-            <p>¡Embárcate en un viaje transformador hacia la serenidad interior con nuestro cautivador curso de Mindfulness y Meditaciones! Descubre el arte de vivir en el presente, liberando tu mente del estrés y la agitación diaria.
 
-                En este curso, te sumergirás en prácticas mindfulness diseñadas para cultivar la atención plena en cada aspecto de tu vida. Aprenderás técnicas de respiración consciente, meditaciones guiadas y estrategias para encontrar paz en medio del caos. Nuestros instructores expertos te guiarán a través de la exploración de la conciencia plena, permitiéndote encontrar equilibrio, claridad mental y bienestar emocional.
-                
-                Ya sea que seas nuevo en la meditación o estés buscando llevar tu práctica al siguiente nivel, este curso te proporcionará herramientas prácticas para incorporar la atención plena en tu rutina diaria. Despierta tu capacidad de vivir con intención, reduciendo el estrés y cultivando una conexión más profunda contigo mismo y con el mundo que te rodea.
-                
-                ¡Únete a nosotros y descubre la magia de vivir el momento presente! Transforma tu vida a través de la práctica del mindfulness y encuentra un oasis de calma en el ajetreo cotidiano. ¡Tu viaje hacia la paz interior comienza ahora!.</p> 
-        </div>  
 
-        <div class="course">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="course" id="curso-espiritualidad-teologia">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Espiritualidad y Teología Avanzada</h3>
+    <img src="https://i.ibb.co/ZVpHBFp/8.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-espiritualidad-teologia">
+        A través de módulos cuidadosamente diseñados, los estudiantes serán guiados hacia una comprensión más rica y significativa de los aspectos espirituales de la existencia y las complejidades teológicas que definen la relación entre el ser humano y lo divino.
+    </p>
+    <button onclick="mostrarMas('curso-espiritualidad-teologia')" id="mostrar-mas-btn-curso-espiritualidad-teologia">Leer más</button>
+    <p id="resto-curso-espiritualidad-teologia" style="display:none;">
+        Módulo 1: Fundamentos Esotéricos de la Espiritualidad
+        
+        Este módulo introduce a los participantes en los principios esotéricos que subyacen en diversas tradiciones espirituales, explorando la conexión entre la espiritualidad y la sabiduría ancestral. Se abordarán prácticas meditativas avanzadas y métodos para expandir la conciencia.
+        
+        Módulo 2: Teología Avanzada y la Naturaleza de lo Divino
+        
+        Los estudiantes explorarán conceptos teológicos avanzados, analizando la naturaleza de lo divino desde perspectivas teológicas múltiples. Se abordarán cuestiones fundamentales como la omnisciencia, la omnipotencia y la naturaleza trascendental de la divinidad.
+        
+        Módulo 3: Misterios Cósmicos y Espiritualidad Cuántica
+        
+        Este módulo fascinante examinará la convergencia entre la espiritualidad y la física cuántica, explorando las implicaciones de la conciencia en la creación y la conexión entre la realidad material y la espiritualidad cósmica.
+        
+        Módulo 4: Misticismo y Prácticas Avanzadas de Transformación Interior
+        
+        Los participantes serán guiados a través de prácticas místicas y métodos avanzados de transformación interior. Se explorarán las experiencias extáticas, la conexión con la divinidad y la trascendencia de los límites del ego.
+        
+        Módulo 5: Diálogo Interreligioso y Unidad Espiritual
+        
+        El curso culminará con un enfoque en el diálogo interreligioso y la búsqueda de la unidad espiritual. Se explorarán similitudes fundamentales entre diversas tradiciones y se fomentará un entendimiento inclusivo que trascienda las diferencias doctrinales.
+        
+        Este curso avanzado está diseñado para aquellos que buscan una comprensión profunda de la espiritualidad y la teología, integrando sabiduría ancestral con perspectivas vanguardistas. Los participantes se embarcarán en un viaje de autodescubrimiento y expansión de la conciencia, trascendiendo las fronteras convencionales 
+        del pensamiento espiritual y teológico. ¡Prepárate para una inmersión transformadora en las dimensiones más elevadas del conocimiento espiritual!
+    </p>
+    <button onclick="mostrarMenos('curso-espiritualidad-teologia')" id="mostrar-menos-btn-curso-espiritualidad-teologia" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+<div class="course" id="curso-mindfulness-meditaciones">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Mindfulness y Meditaciones</h3>
+    <img src="https://i.ibb.co/qgNF27p/9.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-mindfulness-meditaciones">
+        ¡Embárcate en un viaje transformador hacia la serenidad interior con nuestro cautivador curso de Mindfulness y Meditaciones! Descubre el arte de vivir en el presente, liberando tu mente del estrés y la agitación diaria.
+
+        </p>
+    <button onclick="mostrarMas('curso-mindfulness-meditaciones')" id="mostrar-mas-btn-curso-mindfulness-meditaciones">Leer más</button>
+    <p id="resto-curso-mindfulness-meditaciones" style="display:none;">
+        En este curso, te sumergirás en prácticas mindfulness diseñadas para cultivar la atención plena en cada aspecto de tu vida. Aprenderás técnicas de respiración consciente, meditaciones guiadas y estrategias para encontrar paz en medio del caos. Nuestros instructores expertos te guiarán a través de la exploración de la conciencia plena, permitiéndote encontrar equilibrio, claridad mental y bienestar emocional.
+        
+        Ya sea que seas nuevo en la meditación o estés buscando llevar tu práctica al siguiente nivel, este curso te proporcionará herramientas prácticas para incorporar la atención plena en tu rutina diaria. Despierta tu capacidad de vivir con intención, reduciendo el estrés y cultivando una conexión más profunda contigo mismo y con el mundo que te rodea.
+        
+        ¡Únete a nosotros y descubre la magia de vivir el momento presente! Transforma tu vida a través de la práctica del mindfulness y encuentra un oasis de calma en el ajetreo cotidiano. ¡Tu viaje hacia la paz interior comienza ahora!.
+    
+    </p>
+    <button onclick="mostrarMenos('curso-mindfulness-meditaciones')" id="mostrar-menos-btn-curso-mindfulness-meditaciones" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="course" id="curso-coaching-transpersonal">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Coaching Transpersonal</h3>
+    <img src="https://i.ibb.co/YZNHTkv/10.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-coaching-transpersonal">
+        Curso de Coaching Transpersonal! Este viaje único te llevará más allá de las fronteras convencionales del coaching, adentrándote en la esencia misma de tu ser.
+
+       </p>
+    <button onclick="mostrarMas('curso-coaching-transpersonal')" id="mostrar-mas-btn-curso-coaching-transpersonal">Leer más</button>
+    <p id="resto-curso-coaching-transpersonal" style="display:none;">
+        El Coaching Transpersonal fusiona la sabiduría del desarrollo personal con perspectivas espirituales, guiándote hacia una comprensión más profunda de tus desafíos y aspiraciones. Aprenderás a conectar con tu autenticidad, superar bloqueos emocionales y descubrir un sentido más elevado de propósito.
+        
+        Nuestros instructores, expertos en Coaching Transpersonal, te proporcionarán herramientas prácticas y técnicas innovadoras para ayudarte a guiar a otros en su viaje de autodescubrimiento. Desde la exploración de creencias limitantes hasta la creación de planes de acción transformadores, este curso te empoderará para facilitar cambios positivos en la vida de los demás.
+        
+        Ya seas un profesional del coaching en busca de ampliar tus habilidades o alguien comprometido con su propio crecimiento personal, este curso te invita a trascender límites y abrazar una perspectiva integral del coaching. ¡Descubre el poder del Coaching Transpersonal y desata tu máximo potencial!.
+    
+    </p>
+    <button onclick="mostrarMenos('curso-coaching-transpersonal')" id="mostrar-menos-btn-curso-coaching-transpersonal" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+<div class="course" id="curso-pendulo-hebreo">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Péndulo Hebreo</h3>
+    <img src="https://i.ibb.co/Pmhfm5P/11.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-pendulo-hebreo">
+        El Péndulo Hebreo es una técnica de radiestesia y terapia energética que utiliza un péndulo especial. 
+    </p>
+    <button onclick="mostrarMas('curso-pendulo-hebreo')" id="mostrar-mas-btn-curso-pendulo-hebreo">Leer más</button>
+    <p id="resto-curso-pendulo-hebreo" style="display:none;">
+        Se sostiene sobre el cuerpo para explorar y equilibrar el campo energético, detectando desequilibrios o bloqueos. Durante la sesión, se emplean movimientos específicos y símbolos hebreos para armonizar la energía. Algunas personas informan beneficios en su bienestar. Su origen se vincula a prácticas esotéricas y de radiestesia. Es importante tener en cuenta que no reemplaza la atención médica convencional pero se puede utilizar como método alternativo.
+    </p>
+    <button onclick="mostrarMenos('curso-pendulo-hebreo')" id="mostrar-menos-btn-curso-pendulo-hebreo" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+<div class="course" id="curso-parapsicologia">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Parapsicología</h3>
+    <img src="https://i.ibb.co/6JMZdDH/12.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-parapsicologia">
+        La parapsicología es una disciplina que investiga fenómenos paranormales y experiencias psíquicas que van más allá de las explicaciones científicas convencionales. Su enfoque se centra en fenómenos que parecen desafiar las leyes naturales o la comprensión actual de la psicología y la física.
+        
+       </p>
+    <button onclick="mostrarMas('curso-parapsicologia')" id="mostrar-mas-btn-curso-parapsicologia">Leer más</button>
+    <p id="resto-curso-parapsicologia" style="display:none;">
+        Algunos de los temas de estudio comunes en parapsicología incluyen:
+        - Telepatía: La capacidad de transmitir información de una mente a otra sin el uso de los sentidos conocidos.
+        - Clarividencia: La percepción directa de eventos o información sin el uso de los sentidos normales.
+        - Precognición: La capacidad de conocer o prever eventos futuros antes de que ocurran.
+        - Retrocognición: La capacidad de conocer o percibir eventos pasados que no pueden ser conocidos mediante información convencional.
+        - Psicokinesis: La influencia de la mente sobre la materia o eventos físicos sin intervención física.
+        
+        La parapsicología utiliza métodos experimentales y observacionales para investigar estos fenómenos y sus funciones.
+    
+    </p>
+    <button onclick="mostrarMenos('curso-parapsicologia')" id="mostrar-menos-btn-curso-parapsicologia" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+
+
+
+
+</head>
+<body>
+
+<div class="course" id="curso-registros-akashicos">
+    <i class="fas fa-balance-scale"></i>
+    <h3>Registros Akáshicos</h3>
+    <img src="https://i.ibb.co/XbhD4LJ/13.jpg" alt="Descripción de la imagen">
+    <p id="intro-curso-registros-akashicos">
+        Los Registros Akáshicos son un concepto en la espiritualidad y la metafísica que se refiere a un supuesto archivo o registro universal que contiene información sobre todas las experiencias, pensamientos y eventos pasados, presentes y futuros de cada alma o entidad. 
+        
+       </p>
+    <button onclick="mostrarMas('curso-registros-akashicos')" id="mostrar-mas-btn-curso-registros-akashicos">Leer más</button>
+    <p id="resto-curso-registros-akashicos" style="display:none;">
+        estos registros están almacenados en un plano de existencia llamado Akasha.
+        Características clave de los Registros Akáshicos:
+        - Acceso Universal: Se cree que cualquier persona puede acceder a sus propios Registros Akáshicos o a los de otros, a menudo con la ayuda de un lector de Registros Akáshicos.
+        - Guías Espirituales: Se cree que seres espirituales o guías facilitan el acceso a estos registros y ayudan a interpretar la información.
+        - Información Multidimensional: Se sostiene que los Registros Akáshicos contienen información no solo sobre la vida actual de una persona, sino también sobre vidas pasadas y posibles futuros, así como lecciones kármicas.
+        - Sanación y Autoconocimiento: La consulta de los Registros Akáshicos se realiza con el propósito de obtener comprensión, claridad y sanación. Se busca aprender lecciones del pasado, comprender desafíos actuales y recibir orientación para el futuro.
+        
+        En cuanto al origen, la idea de los Registros Akáshicos tiene raíces en la filosofía esotérica y en tradiciones espirituales antiguas. La palabra "Akasha" proviene del sánscrito y se refiere al éter o al quinto elemento, considerado en algunas filosofías como un elemento espiritual y etérico que permea todo. La noción moderna de los Registros Akáshicos fue popularizada por la teosofía a fines del siglo XIX y ha sido adoptada por diversas corrientes espirituales y metafísicas desde entonces.
+    
+    </p>
+    <button onclick="mostrarMenos('curso-registros-akashicos')" id="mostrar-menos-btn-curso-registros-akashicos" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+     // Desplazar al principio del curso
+     document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
               
-                <h3>coaching transpersonal</h3>
-                <img src="https://i.ibb.co/YZNHTkv/10.jpg" alt="Descripción de la imagen">
-                <p>curso de Coaching Transpersonal! Este viaje único te llevará más allá de las fronteras convencionales del coaching, adentrándote en la esencia misma de tu ser.
+       
 
-                    El Coaching Transpersonal fusiona la sabiduría del desarrollo personal con perspectivas espirituales, guiándote hacia una comprensión más profunda de tus desafíos y aspiraciones. Aprenderás a conectar con tu autenticidad, superar bloqueos emocionales y descubrir un sentido más elevado de propósito.
-                    
-                    Nuestros instructores, expertos en Coaching Transpersonal, te proporcionarán herramientas prácticas y técnicas innovadoras para ayudarte a guiar a otros en su viaje de autodescubrimiento. Desde la exploración de creencias limitantes hasta la creación de planes de acción transformadores, este curso te empoderará para facilitar cambios positivos en la vida de los demás.
-                    
-                    Ya seas un profesional del coaching en busca de ampliar tus habilidades o alguien comprometido con su propio crecimiento personal, este curso te invita a trascender límites y abrazar una perspectiva integral del coaching. ¡Descubre el poder del Coaching Transpersonal y desata tu máximo potencial!.</p>  
-         </div>  
-            <div class="course">
-               
-                <h3>Péndulo Hebreo</h3>
-                <img src="https://i.ibb.co/Pmhfm5P/11.jpg" alt="Descripción de la imagen">
-                <p>
-                    El Péndulo Hebreo es una técnica de radiestesia y terapia energética que utiliza un péndulo especial. Se sostiene sobre el cuerpo para explorar y equilibrar el campo energético, detectando desequilibrios o bloqueos. Durante la sesión, se emplean movimientos específicos y símbolos hebreos para armonizar 
-                    la energía. Algunas personas informan beneficios en su bienestar. Su origen se vincula a prácticas esotéricas y de radiestesia. Es importante tener en cuenta que no reemplaza la atención médica convencional pero se puede utilizar como método alternativo.</p>
-        </div>      
-             <div class="course">
-                        
-                        <h3>Parapsicología</h3>
-                        <img src="https://i.ibb.co/6JMZdDH/12.jpg" alt="Descripción de la imagen">
-                        <p>
-                            La parapsicología es una disciplina que investiga fenómenos paranormales y experiencias psíquicas que van más allá de las explicaciones científicas convencionales. Su enfoque se centra en fenómenos que parecen desafiar las leyes naturales o la comprensión actual de la psicología y la física.
-                            
-                            Algunos de los temas de estudio comunes en parapsicología incluyen:
-                            
-                            Telepatía: La capacidad de transmitir información de una mente a otra sin el uso de los sentidos conocidos.
-                            
-                            Clarividencia: La percepción directa de eventos o información sin el uso de los sentidos normales.
-                            
-                            Precognición: La capacidad de conocer o prever eventos futuros antes de que ocurran.
-                            
-                            Retrocognición: La capacidad de conocer o percibir eventos pasados que no pueden ser conocidos mediante información convencional.
-                            
-                            Psicokinesis: La influencia de la mente sobre la materia o eventos físicos sin intervención física.
-                            
-                            La parapsicología utiliza métodos experimentales y observacionales para investigar estos fenómenos Y sus funciones.</p>
-              </div>      
-                        <div class="course">
-                                
-                                   <h3> Registros Akáshicos</h3>
-                                   <img src="https://i.ibb.co/XbhD4LJ/13.jpg" alt="Descripción de la imagen">
-                                   <p>Los Registros Akáshicos son un concepto en la espiritualidad y la metafísica que se refiere a un supuesto archivo o registro universal que contiene información sobre todas las experiencias, pensamientos y eventos pasados, presentes y futuros de cada alma o entidad. Se dice que estos registros están almacenados en un plano de existencia llamado Akasha.
 
-                                    Características clave de los Registros Akáshicos:
-                                    
-                                    Acceso Universal: Se cree que cualquier persona puede acceder a sus propios Registros Akáshicos o a los de otros, a menudo con la ayuda de un lector de Registros Akáshicos.
-                                    
-                                    Guías Espirituales: Se cree que seres espirituales o guías facilitan el acceso a estos registros y ayudan a interpretar la información.
-                                    
-                                    Información Multidimensional: Se sostiene que los Registros Akáshicos contienen información no solo sobre la vida actual de una persona, sino también sobre vidas pasadas y posibles futuros, así como lecciones kármicas.
-                                    
-                                    Sanación y Autoconocimiento: La consulta de los Registros Akáshicos se realiza con el propósito de obtener comprensión, claridad y sanación. Se busca aprender lecciones del pasado, comprender desafíos actuales y recibir orientación para el futuro.
-                                    
-                                    En cuanto al origen, la idea de los Registros Akáshicos tiene raíces en la filosofía esotérica y en tradiciones espirituales antiguas. La palabra "Akasha" proviene del sánscrito y se refiere al éter o al quinto elemento, considerado en algunas filosofías como un elemento espiritual y etérico que permea todo. La noción moderna de los Registros Akáshicos fue
-                                     popularizada por la teosofía a fines del siglo XIX y ha sido adoptada por diversas corrientes espirituales y metafísicas desde entonces.</p>
-            <div class="course">
-                    
-                        <h3>Otros cursos en Formaciones Andina</h3>
-                        <img src="https://i.ibb.co/3mR0YHc/14.png" alt="Descripción de la imagen">
-                        <p> A través de nuestras Terapias Alternativas en la Asociación de Formación Holística Andina! adentrate en un abanico de cursos que fusionan la sabiduría ancestral con enfoques contemporáneos, brindándote herramientas poderosas para el bienestar integral.
 
-                            Curso de Sanación con Cristales:
-                            Descubre la energía curativa de los cristales y aprende a utilizarlos para equilibrar y restaurar la armonía en tu vida. Nuestro curso te sumergirá en la magia de los cristales, enseñándote técnicas prácticas de sanación y elevando tu conexión con la energía universal.
-                            
-                            Taller de Aromaterapia y Aceites Esenciales:
-                            Explora el fascinante mundo de la aromaterapia, donde los aromas naturales se convierten en aliados para tu bienestar. Aprenderás a seleccionar y usar aceites esenciales para mejorar la salud física, mental y emocional, creando un ambiente propicio para la serenidad y el equilibrio.
-                            
-                            Curso de Reiki Energético:
-                            Suma el poder de la energía universal a tu vida con nuestro curso de Reiki. Aprenderás a canalizar y utilizar la energía vital para promover la sanación en ti mismo y en los demás. Descubre las técnicas de equilibrio energético y eleva tu capacidad de promover un flujo positivo de energía.
-                            
-                            Estos cursos son solo el comienzo de un viaje profundo hacia el bienestar integral. En la Asociación de Formación Holística Andina, te ofrecemos una variedad de experiencias educativas diseñadas para nutrir tu mente, cuerpo y espíritu. ¡Únete a nosotros y despierta tu potencial transformador hoy mismo.</p>
-                
-                    <!-- Agrega más cursos según sea necesario -->
 
-    </section>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Tu título aquí</title>
+    <style>
+        /* Aquí puedes agregar estilos personalizados si es necesario */
+    </style>
+</head>
+<body>
+
+<div class="course" id="otros-cursos-formaciones-andina">
+    <h3>Otros cursos en Formaciones Andina</h3>
+    <img src="https://i.ibb.co/3mR0YHc/14.png" alt="Descripción de la imagen">
+    <p id="intro-otros-cursos-formaciones-andina">
+        A través de nuestras Terapias Alternativas en la Asociación de Formación Holística Andina, adéntrate en un abanico de cursos que fusionan la sabiduría ancestral con enfoques contemporáneos, brindándote herramientas poderosas para el bienestar integral.
+
+        </p>
+    <button onclick="mostrarMas('otros-cursos-formaciones-andina')" id="mostrar-mas-btn-otros-cursos-formaciones-andina">Leer más</button>
+    <p id="resto-otros-cursos-formaciones-andina" style="display:none;">
+        Curso de Sanación con Cristales:
+        Descubre la energía curativa de los cristales y aprende a utilizarlos para equilibrar y restaurar la armonía en tu vida. Nuestro curso te sumergirá en la magia de los cristales, enseñándote técnicas prácticas de sanación y elevando tu conexión con la energía universal.
+
+        Taller de Aromaterapia y Aceites Esenciales:
+        Explora el fascinante mundo de la aromaterapia, donde los aromas naturales se convierten en aliados para tu bienestar. Aprenderás a seleccionar y usar aceites esenciales para mejorar la salud física, mental y emocional, creando un ambiente propicio para la serenidad y el equilibrio.
+
+        Curso de Reiki Energético:
+        Suma el poder de la energía universal a tu vida con nuestro curso de Reiki. Aprenderás a canalizar y utilizar la energía vital para promover la sanación en ti mismo y en los demás. Descubre las técnicas de equilibrio energético y eleva tu capacidad de promover un flujo positivo de energía.
+
+        Estos cursos son solo el comienzo de un viaje profundo hacia el bienestar integral. En la Asociación de Formación Holística Andina, te ofrecemos una variedad de experiencias educativas diseñadas para nutrir tu mente, cuerpo y espíritu. ¡Únete a nosotros y despierta tu potencial transformador hoy mismo.
+    
+    </p>
+    <button onclick="mostrarMenos('otros-cursos-formaciones-andina')" id="mostrar-menos-btn-otros-cursos-formaciones-andina" style="display:none;">Mostrar menos</button>
+</div>
+
+<script>
+    function mostrarMas(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'none';
+        document.getElementById('resto-' + cursoId).style.display = 'block';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'inline-block';
+    }
+
+    function mostrarMenos(cursoId) {
+        document.getElementById('intro-' + cursoId).style.display = 'block';
+        document.getElementById('resto-' + cursoId).style.display = 'none';
+        document.getElementById('mostrar-mas-btn-' + cursoId).style.display = 'inline-block';
+        document.getElementById('mostrar-menos-btn-' + cursoId).style.display = 'none';
+        
+        // Desplazar al principio del curso
+        document.getElementById(cursoId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
 
 
 
