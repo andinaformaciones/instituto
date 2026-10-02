@@ -14,6 +14,236 @@
     <meta property="og:url" content="https://andinaformaciones.github.io/instituto/" />
     <meta property="og:type" content="website" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+/* ===== NAVEGACIÓN INSTITUCIONAL · ANDINA FORMACIONES ===== */
+.af-main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.92);
+    border-top: 1px solid rgba(30, 70, 99, 0.08);
+    border-bottom: 1px solid rgba(30, 70, 99, 0.13);
+    box-shadow: 0 8px 24px rgba(22, 45, 63, 0.10);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.af-nav-shell {
+    width: min(1380px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.af-menu {
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+}
+
+.af-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.af-menu li a {
+    position: relative;
+    min-height: 44px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    color: #29465b;
+    background: transparent;
+    text-decoration: none;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    white-space: nowrap;
+    transition: color .28s ease, background .28s ease, border-color .28s ease, transform .28s ease, box-shadow .28s ease;
+}
+
+.af-menu li a i {
+    font-size: 13px;
+    width: 17px;
+    text-align: center;
+    opacity: .82;
+    transition: transform .28s ease, opacity .28s ease;
+}
+
+.af-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 10px;
+    background: #b28a3b;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .28s ease;
+}
+
+.af-menu li a:hover,
+.af-menu li a:focus-visible {
+    color: #173b56;
+    background: linear-gradient(135deg, rgba(30,70,99,.10), rgba(178,138,59,.08));
+    border-color: rgba(30,70,99,.14);
+    box-shadow: 0 6px 18px rgba(30,70,99,.09);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.af-menu li a:hover i,
+.af-menu li a:focus-visible i {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.af-menu li a:hover::after,
+.af-menu li a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.af-menu li a:active {
+    transform: translateY(0);
+}
+
+.af-menu-toggle {
+    display: none;
+    width: 48px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(30,70,99,.14);
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 5px 16px rgba(30,70,99,.10);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.af-menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 10px;
+    background: #1e4663;
+    transition: transform .3s ease, opacity .25s ease;
+}
+
+.af-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.af-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.af-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+    .af-main-nav { padding: 8px 10px; }
+    .af-menu { gap: 4px; }
+    .af-menu li a { padding: 8px 9px; font-size: 12px; gap: 6px; }
+    .af-menu li a i { font-size: 12px; width: 15px; }
+}
+
+@media (max-width: 760px) {
+    .af-main-nav {
+        padding: 9px 12px;
+        background: rgba(255,255,255,.96);
+    }
+
+    .af-nav-shell {
+        justify-content: flex-end;
+    }
+
+    .af-menu-toggle {
+        display: flex;
+    }
+
+    .af-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 12px;
+        right: 12px;
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 9px;
+        background: rgba(255,255,255,.98);
+        border: 1px solid rgba(30,70,99,.13);
+        border-radius: 18px;
+        box-shadow: 0 16px 40px rgba(20,45,63,.17);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        max-height: calc(100vh - 85px);
+        overflow-y: auto;
+    }
+
+    .af-menu.active {
+        display: flex;
+        animation: afMenuReveal .25s ease both;
+    }
+
+    .af-menu li a {
+        width: 100%;
+        min-height: 46px;
+        justify-content: flex-start;
+        padding: 10px 13px;
+        border-radius: 12px;
+        font-size: 13px;
+    }
+
+    .af-menu li a i {
+        width: 22px;
+        font-size: 14px;
+    }
+
+    .af-menu li a::after {
+        left: 11px;
+        right: auto;
+        width: 3px;
+        height: 22px;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%) scaleY(0);
+        transform-origin: center;
+    }
+
+    .af-menu li a:hover::after,
+    .af-menu li a:focus-visible::after {
+        transform: translateY(-50%) scaleY(1);
+    }
+}
+
+@keyframes afMenuReveal {
+    from { opacity: 0; transform: translateY(-7px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
     <style>
         body {
@@ -376,32 +606,55 @@
         <h2>Descubre el Camino hacia tu Bienestar Integral</h2>
     </header>
 
-    <nav class="fixed-menu">
-        <div class="burger-menu" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+    <nav class="fixed-menu af-main-nav" aria-label="Navegación principal">
+        <div class="af-nav-shell">
+            <button class="burger-menu af-menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="menu af-menu">
+                <li><a href="#cursos"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span>Cursos</span></a></li>
+                <li><a href="#nosotros"><i class="fas fa-landmark" aria-hidden="true"></i><span>Nosotros</span></a></li>
+                <li><a href="#certificaciones"><i class="fas fa-certificate" aria-hidden="true"></i><span>Certificaciones</span></a></li>
+                <li><a href="#Registro Público de Certificaciones Web"><i class="fas fa-id-card" aria-hidden="true"></i><span>Registro Público</span></a></li>
+                <li><a href="#Biblioteca Digital Holística"><i class="fas fa-book-open" aria-hidden="true"></i><span>Biblioteca Digital</span></a></li>
+                <li><a href="#cine-andina"><i class="fas fa-film" aria-hidden="true"></i><span>Cine Andina</span></a></li>
+                <li><a href="#PolíticasdePrivacidad"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Privacidad</span></a></li>
+                <li><a href="#Noticias UISA"><i class="fas fa-newspaper" aria-hidden="true"></i><span>Noticias UISA</span></a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope" aria-hidden="true"></i><span>Contacto</span></a></li>
+            </ul>
         </div>
-        <ul class="menu">
-            <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#certificaciones">Certificaciones</a></li>
-            <li><a href="#Registro Público de Certificaciones Web">Registro Público de Certificaciones Web</a></li>
-            <li><a href="#Biblioteca Digital Holística">Biblioteca Digital Holística</a></li>
-            <li><a href="#PolíticasdePrivacidad">Políticas de Privacidad</a></li>
-            <li><a href="#Noticias UISA">Noticias UISA</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-
-        </ul>
     </nav>
 
     <script>
         function toggleMenu() {
-            var menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
-            var burgerMenu = document.querySelector('.burger-menu');
-            burgerMenu.classList.toggle('active');
+            var menu = document.querySelector('.af-menu');
+            var burgerMenu = document.querySelector('.af-menu-toggle');
+            if (!menu || !burgerMenu) return;
+            var isOpen = menu.classList.toggle('active');
+            burgerMenu.classList.toggle('active', isOpen);
+            burgerMenu.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            burgerMenu.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var menu = document.querySelector('.af-menu');
+            if (!menu) return;
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 760) {
+                        menu.classList.remove('active');
+                        var toggle = document.querySelector('.af-menu-toggle');
+                        if (toggle) {
+                            toggle.classList.remove('active');
+                            toggle.setAttribute('aria-expanded', 'false');
+                            toggle.setAttribute('aria-label', 'Abrir menú');
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
@@ -1891,445 +2144,343 @@
 
 
 
-<section id="Registro Público de Certificaciones Web">
-     
-
-            <h3>Registro Público de Certificaciones Web</h3>
-
-
-
-           
-           
-
-
-<p>Este registro se erige como un testimonio vivo de nuestro compromiso con la transparencia y la responsabilidad hacia nuestros estudiantes y la comunidad en general</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!DOCTYPE html>
-            <html lang="es">
-            <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Imagen a través de un enlace con animación</title>
-            <style>
-            /* Estilos para la animación al pasar el mouse */
-            a.image-container {
-              display: inline-block;
-              overflow: hidden;
-              position: relative;
-              perspective: 1000px; /* Para aplicar efectos 3D */
-            }
-            
-            a.image-container img {
-              display: block;
-              overflow: hidden;
-              border-radius: 10px;
-              transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
-            }
-            
-            a.image-container:hover img {
-              transform: scale(1.05) rotateY(5deg) rotateX(5deg);
-              box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
-              filter: blur(3px); /* Efecto de desenfoque */
-            }
-            
-            /* Estilos para el texto de indicación */
-            a.image-container .indication {
-              position: absolute;
-              bottom: 30px;
-              left: 50%;
-              transform: translateX(-50%);
-              background-color: rgba(255, 255, 255, 0.8);
-              padding: 5px 10px;
-              border-radius: 5px;
-              font-size: 14px;
-              color: #333;
-              opacity: 0;
-              transition: opacity 0.3s ease;
-            }
-            
-            a.image-container:hover .indication {
-              opacity: 1;
-            }
-            
-            /* Estilos para la flecha */
-            .arrow {
-              position: absolute;
-              bottom: 10px;
-              left: 50%;
-              transform: translateX(-50%);
-            }
-            </style>
-            </head>
-            <body>
-            
-            <!-- Enlace a la imagen con animación -->
-            <a href="https://andinaformaciones.github.io/RegistrodeCertificacionesWeb" class="image-container">
-                <!-- Imagen -->
-                <img src="https://i.ibb.co/7kJ6CbW/A-adir-un-t-tulo-1.jpg" alt="Descripción de la imagen" width="300">
-                <!-- Flecha indicativa -->
-                <img class="arrow" src="https://cdn-icons-png.flaticon.com/512/6687/6687957.png" alt="Flecha hacia abajo" width="30">
-                <!-- Indicación -->
-                <span class="indication">Haz clic en la imagen para visitar la web</span>
-            </a>
-            
-            </body>
-            </html>
-            
-            
-            
-            
-            
-            <p>(Haz clic en la imagen para visitar la web)</p>
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div> 
-</section>
-
-
-
-
-
-
-<section id="Biblioteca Digital Holística">
-
-
-            <h3>Biblioteca Digital Holística Pública</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblioteca Digital Holística</title>
-
-<p>Biblioteca Digital Holística Gratuita - Andina Formaciones - Un espacio abierto para que todas las personas puedan acceder libremente a contenidos de formación, estudio e investigación en el ámbito holístico.
-Desde la Asociación de Formación Holística Andina reafirmamos nuestro compromiso con un aprendizaje libre, público y de calidad, entendiendo que el conocimiento es una herramienta de transformación personal y colectiva.
-Creemos en la educación accesible, en la expansión de la conciencia y en la construcción de una comunidad que crece a través del saber compartido.
-</p>
-
-
 <style>
-
-/* ===== ELIMINAR FONDO GRIS GLOBAL ===== */
-html, body {
-    margin: 0;
-    padding: 0;
-    background: #ffffff; /* blanco limpio */
-}
-
-/* ===== CONTENEDOR PRINCIPAL ===== */
-.af-preview-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 60px 0;
-    font-family: 'Segoe UI', 'Poppins', sans-serif;
-}
-
-/* ===== TARJETA ===== */
-.af-image-container {
-    position: relative;
-    width: 480px;
-    border-radius: 18px;
+/* =========================================================
+   VISTAS PREVIAS PROFESIONALES — BIBLIOTECA / REGISTRO / CINE
+   Estilos encapsulados para no modificar el resto del sitio.
+   ========================================================= */
+.af-portal-section {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 58px 28px;
+    margin: 24px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 48%, #eef3f7 100%);
+    border-radius: 22px;
     overflow: hidden;
-    text-decoration: none;
-    display: block;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
-    transition: all 0.4s ease;
 }
 
-/* ===== IMAGEN ===== */
-.af-preview-img {
-    width: 100%;
-    display: block;
-    border-radius: 18px;
+.af-portal-inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-/* ===== BARRA INFERIOR ELEGANTE ===== */
-.af-bottom-bar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 18px 20px;
+.af-portal-heading {
+    max-width: 920px;
+    margin: 0 auto 30px;
     text-align: center;
+}
+
+.af-portal-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 7px 14px;
+    border: 1px solid rgba(30,70,99,.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,.78);
+    color: #1e4663;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.af-portal-heading h3 {
+    margin: 0 0 10px;
+    color: #17364d;
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1.15;
+    letter-spacing: .2px;
+}
+
+.af-portal-heading p {
+    max-width: 820px;
+    margin: 0 auto;
+    color: #596875;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.af-portal-card {
+    display: block;
+    width: min(920px, 100%);
+    margin: 0 auto;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid rgba(30,70,99,.13);
+    border-radius: 22px;
+    box-shadow: 0 16px 45px rgba(21,43,58,.13), 0 3px 10px rgba(21,43,58,.06);
+    transition: transform .45s cubic-bezier(.2,.75,.25,1), box-shadow .45s ease, border-color .45s ease;
+}
+
+.af-portal-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(30,70,99,.28);
+    box-shadow: 0 28px 65px rgba(21,43,58,.19), 0 7px 18px rgba(21,43,58,.08);
+}
+
+.af-portal-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 8.4;
+    overflow: hidden;
+    background: #172b3b;
+}
+
+.af-portal-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .75s cubic-bezier(.2,.75,.25,1), filter .55s ease;
+}
+
+.af-portal-card:hover .af-portal-media img {
+    transform: scale(1.045);
+    filter: saturate(1.05) contrast(1.03);
+}
+
+.af-portal-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,22,34,.08) 20%, rgba(8,22,34,.08) 42%, rgba(8,22,34,.78) 100%);
+    pointer-events: none;
+}
+
+.af-portal-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 13px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(12,30,44,.68);
+    backdrop-filter: blur(10px);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+}
+
+.af-portal-action {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(12,30,44,.68);
+    backdrop-filter: blur(10px);
+    transition: transform .35s ease, background .35s ease;
+}
+
+.af-portal-card:hover .af-portal-action {
+    transform: rotate(8deg) scale(1.08);
+    background: #1e4663;
+}
+
+.af-portal-card-body {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 26px;
+    box-sizing: border-box;
+}
+
+.af-portal-card-body > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.af-portal-card-body strong {
+    color: #18384f;
     font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(6px);
-    transition: background 0.4s ease;
+    line-height: 1.35;
 }
 
-/* ===== EFECTOS HOVER ===== */
-.af-image-container:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+.af-portal-card-body span:not(.af-portal-button) {
+    color: #71808c;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-.af-image-container:hover .af-bottom-bar {
-    background: #db9e04; /* amarillo oscuro elegante */
+.af-portal-button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    color: #fff !important;
+    background: #1e4663;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background .3s ease, transform .3s ease;
 }
 
+.af-portal-card:hover .af-portal-button {
+    background: #16364e;
+    transform: translateX(3px);
+}
+
+.af-portal-footer-note {
+    margin: 20px 0 0;
+    text-align: center;
+    color: #687783;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.af-portal-footer-note i {
+    margin-right: 7px;
+    color: #b18116;
+}
+
+.af-cine-section {
+    background: linear-gradient(135deg, #07121d 0%, #0c1f2f 55%, #132e42 100%);
+}
+
+.af-cine-section .af-portal-heading h3 { color: #ffffff; }
+.af-cine-section .af-portal-heading p { color: #c9d4dc; }
+.af-cine-section .af-portal-kicker {
+    color: #e2b94f;
+    border-color: rgba(226,185,79,.28);
+    background: rgba(255,255,255,.06);
+}
+.af-cine-section .af-portal-card {
+    border-color: rgba(255,255,255,.12);
+    background: #ffffff;
+}
+.af-cine-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 68px;
+    height: 68px;
+    display: grid;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(255,255,255,.85);
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(10,28,42,.62);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.28);
+    transition: transform .4s ease, background .4s ease;
+}
+.af-cine-card:hover .af-cine-play {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: rgba(30,70,99,.9);
+}
+
+@media (max-width: 760px) {
+    .af-portal-section { padding: 40px 14px; border-radius: 14px; }
+    .af-portal-card { border-radius: 16px; }
+    .af-portal-media { aspect-ratio: 16 / 10; }
+    .af-portal-card-body { flex-direction: column; align-items: stretch; gap: 16px; padding: 19px; }
+    .af-portal-card-body > div { text-align: center; }
+    .af-portal-button { justify-content: center; }
+}
 </style>
-</head>
 
-<body>
-
-<div class="af-preview-wrapper">
-
-    <a href="https://andinaformaciones.github.io/Biblioteca-Digital/" 
-       class="af-image-container" 
-       target="_blank">
-
-        <img 
-            src="https://i.ibb.co/SChHkN4/Copia-de-A-adir-un-t-tulo.jpg" 
-            alt="Biblioteca Digital Holística Andina"
-            class="af-preview-img"
-        >
-
-        <div class="af-bottom-bar">
-            Biblioteca Digital Holística 
-            
+<section id="Registro Público de Certificaciones Web" class="af-portal-section af-registro-section">
+    <div class="af-portal-inner">
+        <div class="af-portal-heading">
+            <span class="af-portal-kicker">TRANSPARENCIA · CONSULTA PÚBLICA</span>
+            <h3>Registro Público de Certificaciones Web</h3>
+            <p>Este registro se erige como un testimonio vivo de nuestro compromiso con la transparencia y la responsabilidad hacia nuestros estudiantes y la comunidad en general.</p>
         </div>
 
-    </a>
-
-
-
-</div>
-
- <p>El conocimiento es un derecho, y hoy está al alcance de todos.</p>
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div> 
+        <a class="af-portal-card" href="https://andinaformaciones.github.io/RegistrodeCertificacionesWeb" target="_blank" rel="noopener noreferrer" aria-label="Abrir Registro Público de Certificaciones Web">
+            <div class="af-portal-media">
+                <img src="https://i.ibb.co/7kJ6CbW/A-adir-un-t-tulo-1.jpg" alt="Registro Público de Certificaciones Web">
+                <div class="af-portal-overlay"></div>
+                <div class="af-portal-badge"><i class="fas fa-certificate"></i> REGISTRO PÚBLICO</div>
+                <div class="af-portal-action"><i class="fas fa-arrow-up-right-from-square"></i></div>
+            </div>
+            <div class="af-portal-card-body">
+                <div>
+                    <strong>Consulta el registro de certificaciones</strong>
+                    <span>Acceso directo a la plataforma pública de consulta.</span>
+                </div>
+                <span class="af-portal-button">Visitar registro <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+    </div>
 </section>
 
+<section id="Biblioteca Digital Holística" class="af-portal-section af-biblioteca-section">
+    <div class="af-portal-inner">
+        <div class="af-portal-heading">
+            <span class="af-portal-kicker">ACCESO LIBRE · FORMACIÓN · INVESTIGACIÓN</span>
+            <h3>Biblioteca Digital Holística Pública</h3>
+            <p>Biblioteca Digital Holística Gratuita - Andina Formaciones - Un espacio abierto para acceder libremente a contenidos de formación, estudio e investigación en el ámbito holístico. Reafirmamos nuestro compromiso con un aprendizaje libre, público y de calidad.</p>
+        </div>
 
+        <a class="af-portal-card" href="https://andinaformaciones.github.io/Biblioteca-Digital/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Biblioteca Digital Holística">
+            <div class="af-portal-media">
+                <img src="https://i.ibb.co/SChHkN4/Copia-de-A-adir-un-t-tulo.jpg" alt="Biblioteca Digital Holística Andina">
+                <div class="af-portal-overlay"></div>
+                <div class="af-portal-badge"><i class="fas fa-book-open"></i> BIBLIOTECA DIGITAL</div>
+                <div class="af-portal-action"><i class="fas fa-arrow-up-right-from-square"></i></div>
+            </div>
+            <div class="af-portal-card-body">
+                <div>
+                    <strong>Explora la Biblioteca Digital Holística</strong>
+                    <span>Documentos, materiales y recursos para el aprendizaje.</span>
+                </div>
+                <span class="af-portal-button">Ingresar a la biblioteca <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
 
+        <p class="af-portal-footer-note"><i class="fas fa-lightbulb"></i> El conocimiento es un derecho, y hoy está al alcance de todos.</p>
+    </div>
+</section>
 
+<section id="cine-andina" class="af-portal-section af-cine-section">
+    <div class="af-portal-inner">
+        <div class="af-portal-heading">
+            <span class="af-portal-kicker">CINEMATOGRAFÍA · CULTURA · EDUCACIÓN</span>
+            <h3>Cine Andina</h3>
+            <p>Un nuevo espacio para acercar el cine, la cultura y la formación audiovisual de una manera dinámica, accesible y pedagógica.</p>
+        </div>
 
-        <section id="Noticias UISA">
+        <a class="af-portal-card af-cine-card" href="https://andinaformaciones.github.io/cineandina/" target="_blank" rel="noopener noreferrer" aria-label="Ingresar a Cine Andina">
+            <div class="af-portal-media">
+                <img src="https://i.ibb.co/R4tsmGq2/ASOCIACI-N-DE-FORMACI-N-HOL-STICA-ANDINA-2.jpg" alt="Cine Andina Formaciones">
+                <div class="af-portal-overlay"></div>
+                <div class="af-portal-badge"><i class="fas fa-film"></i> CINE ANDINA</div>
+                <div class="af-cine-play"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="af-portal-card-body">
+                <div>
+                    <strong>Cinematografía · Formación y Cultura Audiovisual</strong>
+                    <span>Películas, documentales, cortometrajes, podcast y más contenido audiovisual.</span>
+                </div>
+                <span class="af-portal-button">Entrar a Cine Andina <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section id="Noticias UISA">
             <h3>Noticias U.I.S.A y Reformas Andina Formaciones</h3>
             <p>Asociación de Formación Holística Andina Anuncia la Liberación de Contenido Audiovisual Educativo
 
@@ -2701,7 +2852,28 @@ html, body {
     
         <!-- Agrega más artículos de noticias si es necesario -->
     
-    </body>
+    
+<style id="af-menu-logo-fix">
+/* Corrección: el menú nunca invade el encabezado ni el logotipo en PC */
+header {
+    position: relative !important;
+    z-index: 2 !important;
+}
+.af-main-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+@media (min-width: 761px) {
+    .af-main-nav {
+        margin-top: 0 !important;
+        transform: none !important;
+    }
+}
+</style>
+</body>
      
     
     
@@ -2860,6 +3032,11 @@ html, body {
     
             // Ejemplo: mostrar un mensaje en la consola
             console.log("Código de promoción aplicado: " + codigoPromocion);
+
+
+
+
+
 
 
 
