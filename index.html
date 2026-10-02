@@ -243,6 +243,69 @@
     from { opacity: 0; transform: translateY(-7px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Control móvil centrado y líneas perfectamente simétricas */
+.af-mobile-menu-control { display: none; }
+.af-main-nav .af-menu-toggle {
+    display: none;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(30,70,99,.18);
+    border-radius: 14px;
+    background: linear-gradient(145deg, #ffffff, #f2f6f8);
+    box-shadow: 0 5px 14px rgba(30,70,99,.14);
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.af-main-nav .af-menu-toggle span {
+    position: absolute;
+    left: 12px;
+    width: 20px;
+    height: 2px;
+    margin: 0;
+    border-radius: 99px;
+    background: #1e4663;
+    transform-origin: center;
+}
+.af-main-nav .af-menu-toggle span:nth-child(1) { transform: translateY(-6px); }
+.af-main-nav .af-menu-toggle span:nth-child(2) { transform: translateY(0); }
+.af-main-nav .af-menu-toggle span:nth-child(3) { transform: translateY(6px); }
+.af-main-nav .af-menu-toggle.active span:nth-child(1) { transform: rotate(45deg); }
+.af-main-nav .af-menu-toggle.active span:nth-child(2) { opacity: 0; }
+.af-main-nav .af-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg); }
+.af-main-nav .af-menu-toggle:focus-visible {
+    outline: 3px solid rgba(178,138,59,.45);
+    outline-offset: 3px;
+}
+.af-mobile-menu-hint { display: none; }
+
+@media (max-width: 760px) {
+    .af-nav-shell { justify-content: center; }
+    .af-mobile-menu-control {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 100%;
+    }
+    .af-main-nav .af-menu-toggle { display: flex; }
+    .af-mobile-menu-hint {
+        display: block;
+        color: #29465b;
+        font: 600 11px/1.3 Arial, sans-serif;
+        letter-spacing: .2px;
+        text-align: center;
+    }
+}
 </style>
 </head>
     <style>
@@ -608,11 +671,14 @@
 
     <nav class="fixed-menu af-main-nav" aria-label="Navegación principal">
         <div class="af-nav-shell">
-            <button class="burger-menu af-menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="af-mobile-menu-control">
+                <button class="burger-menu af-menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <span class="af-mobile-menu-hint">Presiona para ver el menú</span>
+            </div>
             <ul class="menu af-menu">
                 <li><a href="#cursos"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span>Cursos</span></a></li>
                 <li><a href="#nosotros"><i class="fas fa-landmark" aria-hidden="true"></i><span>Nosotros</span></a></li>
@@ -625,9 +691,25 @@
                 <li><a href="#contacto"><i class="fas fa-envelope" aria-hidden="true"></i><span>Contacto</span></a></li>
             </ul>
         </div>
+        <button class="af-nav-collapse" type="button" onclick="toggleNavCollapse()" aria-expanded="true" aria-label="Ocultar menú de navegación" title="Ocultar menú">
+            <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        </button>
     </nav>
 
     <script>
+        function toggleNavCollapse() {
+            var nav = document.querySelector('.af-main-nav');
+            var button = document.querySelector('.af-nav-collapse');
+            if (!nav || !button) return;
+            var collapsed = nav.classList.toggle('nav-collapsed');
+            button.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+            button.setAttribute('aria-label', collapsed ? 'Mostrar menú de navegación' : 'Ocultar menú de navegación');
+            button.title = collapsed ? 'Mostrar menú' : 'Ocultar menú';
+            button.innerHTML = collapsed
+                ? '<i class="fas fa-chevron-down" aria-hidden="true"></i>'
+                : '<i class="fas fa-chevron-up" aria-hidden="true"></i>';
+        }
+
         function toggleMenu() {
             var menu = document.querySelector('.af-menu');
             var burgerMenu = document.querySelector('.af-menu-toggle');
@@ -2872,6 +2954,55 @@ header {
     }
 }
 </style>
+
+<style id="af-hamburger-symmetric-final">
+/* Ajuste final: tres líneas blancas iguales, centradas y con separación uniforme. */
+@media screen and (max-width: 760px) {
+  nav.af-main-nav button.af-menu-toggle,
+  nav.af-main-nav button.burger-menu.af-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  nav.af-main-nav button.af-menu-toggle > span,
+  nav.af-main-nav button.burger-menu.af-menu-toggle > span {
+    position: static !important;
+    display: block !important;
+    flex: 0 0 2px !important;
+    width: 22px !important;
+    min-width: 22px !important;
+    max-width: 22px !important;
+    height: 2px !important;
+    min-height: 2px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    align-self: center !important;
+  }
+  nav.af-main-nav button.af-menu-toggle.active > span:nth-child(1),
+  nav.af-main-nav button.burger-menu.af-menu-toggle.active > span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg) !important;
+  }
+  nav.af-main-nav button.af-menu-toggle.active > span:nth-child(2),
+  nav.af-main-nav button.burger-menu.af-menu-toggle.active > span:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  nav.af-main-nav button.af-menu-toggle.active > span:nth-child(3),
+  nav.af-main-nav button.burger-menu.af-menu-toggle.active > span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+  }
+}
+</style>
 </body>
      
     
@@ -3016,7 +3147,210 @@ header {
 
         <!-- Agrega un formulario de contacto si es necesario -->
     </section>
-    <footer>
+    
+<style>
+/* Control discreto para plegar/desplegar la navegación en escritorio y móvil */
+.af-main-nav { position: sticky; }
+.af-nav-collapse {
+    position: absolute;
+    left: 50%;
+    bottom: -13px;
+    transform: translateX(-50%);
+    z-index: 1002;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid rgba(30,70,99,.22);
+    border-radius: 0 0 9px 9px;
+    background: rgba(255,255,255,.94);
+    color: #496578;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(30,70,99,.08);
+    transition: background .2s ease, color .2s ease, height .2s ease;
+}
+.af-nav-collapse:hover, .af-nav-collapse:focus-visible {
+    background: #eaf0f4;
+    color: #1e4663;
+    outline: 2px solid rgba(30,70,99,.2);
+    outline-offset: 1px;
+}
+.af-main-nav.nav-collapsed {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-color: transparent;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.af-main-nav.nav-collapsed .af-nav-shell {
+    display: none;
+}
+.af-main-nav .af-nav-shell {
+    transition: opacity .22s ease, transform .22s ease;
+}
+.af-main-nav.nav-collapsed .af-nav-collapse {
+    bottom: -25px;
+    width: 42px;
+    height: 27px;
+    border-radius: 0 0 10px 10px;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 4px 12px rgba(30,70,99,.12);
+}
+footer {
+    box-sizing: border-box;
+    padding: 14px 20px !important;
+    font-size: 16px;
+    line-height: 1.35;
+}
+footer p {
+    margin: 0 !important;
+    line-height: 1.4;
+}
+@media (max-width: 760px) {
+    .af-nav-collapse { bottom: -12px; }
+    .af-main-nav.nav-collapsed .af-nav-collapse { bottom: -24px; }
+    footer { padding: 10px 12px !important; font-size: 13px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .af-main-nav .af-menu { transition: opacity .2s ease; }
+}
+</style>
+
+
+<style id="af-elegant-navigation-refresh">
+/* Identidad visual refinada: azul institucional, detalles dorados y movimiento sutil */
+.af-main-nav {
+    background: rgba(250, 252, 253, .94) !important;
+    border-top: 1px solid rgba(255,255,255,.9) !important;
+    border-bottom: 1px solid rgba(30,70,99,.14) !important;
+    box-shadow: 0 10px 30px rgba(20,45,63,.09) !important;
+    backdrop-filter: blur(18px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+    transition: padding .35s cubic-bezier(.2,.8,.2,1), background .35s ease, box-shadow .35s ease;
+}
+.af-nav-shell { gap: 16px; }
+.af-menu { gap: 5px; }
+.af-menu li a {
+    min-height: 42px;
+    padding: 9px 13px;
+    border-radius: 12px;
+    color: #29465b;
+    font-size: 13px;
+    letter-spacing: .18px;
+    transition: color .24s ease, background .28s ease, border-color .28s ease,
+                transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease;
+}
+.af-menu li a::after {
+    left: 20%; right: 20%; bottom: 4px; height: 2px;
+    background: linear-gradient(90deg, #b28a3b, #d8bd7b);
+    box-shadow: 0 0 8px rgba(178,138,59,.18);
+}
+.af-menu li a:hover,
+.af-menu li a:focus-visible {
+    color: #173b56;
+    background: linear-gradient(135deg, rgba(30,70,99,.085), rgba(178,138,59,.075));
+    border-color: rgba(30,70,99,.12);
+    box-shadow: 0 5px 16px rgba(30,70,99,.08);
+    transform: translateY(-2px);
+}
+.af-menu li a i { color: #587487; transition: color .25s ease, transform .3s ease; }
+.af-menu li a:hover i, .af-menu li a:focus-visible i { color: #a17a2e; transform: translateY(-1px) scale(1.06); }
+
+/* Botón hamburguesa con acabado sobrio y animación suave */
+button.af-menu-toggle, button.burger-menu.af-menu-toggle {
+    position: relative !important;
+    top: auto !important; right: auto !important; left: auto !important;
+    display: flex !important;
+    flex: 0 0 auto;
+    width: 48px !important; height: 46px !important;
+    padding: 0 !important; margin: 0 3px 0 10px !important;
+    align-items: center; justify-content: center; flex-direction: column;
+    gap: 5px;
+    border: 1px solid rgba(255,255,255,.16) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(145deg, #244e6a, #17364d) !important;
+    box-shadow: 0 6px 16px rgba(20,45,63,.20), inset 0 1px 0 rgba(255,255,255,.12) !important;
+    cursor: pointer;
+    transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease,
+                background .28s ease, border-color .28s ease !important;
+}
+button.af-menu-toggle:hover, button.burger-menu.af-menu-toggle:hover {
+    background: linear-gradient(145deg, #2b5b78, #1b405a) !important;
+    border-color: rgba(214,186,119,.65) !important;
+    box-shadow: 0 9px 22px rgba(20,45,63,.24), 0 0 0 3px rgba(178,138,59,.09) !important;
+    transform: translateY(-2px);
+}
+button.af-menu-toggle:active, button.burger-menu.af-menu-toggle:active { transform: scale(.96); }
+button.af-menu-toggle:focus-visible { outline: 3px solid rgba(178,138,59,.55); outline-offset: 3px; }
+.af-menu-toggle span, .burger-menu.af-menu-toggle span, .burger-menu.af-menu-toggle div {
+    display: block;
+    width: 21px !important; height: 2px !important;
+    margin: 0 !important;
+    border-radius: 10px;
+    background: #f7f9fb !important;
+    box-shadow: none !important;
+    transition: transform .32s cubic-bezier(.2,.8,.2,1), opacity .2s ease, width .25s ease;
+}
+.af-menu-toggle span:nth-child(2) { width: 15px !important; margin-left: 6px !important; }
+.af-menu-toggle:hover span:nth-child(2) { width: 21px !important; }
+.af-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.af-menu-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(.4); }
+.af-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Control para plegar el menú: pequeño tirador con acabado elegante */
+.af-nav-collapse {
+    width: 42px !important; height: 22px !important;
+    bottom: -12px !important;
+    border: 1px solid rgba(30,70,99,.16) !important;
+    border-top: 0 !important;
+    border-radius: 0 0 12px 12px !important;
+    background: linear-gradient(180deg, #fff, #f1f5f7) !important;
+    color: #35566c !important;
+    box-shadow: 0 5px 13px rgba(20,45,63,.12) !important;
+    transition: width .25s ease, height .25s ease, color .25s ease, box-shadow .25s ease, background .25s ease !important;
+}
+.af-nav-collapse:hover, .af-nav-collapse:focus-visible {
+    width: 50px !important; height: 25px !important;
+    background: linear-gradient(180deg, #fff, #f7f0df) !important;
+    color: #9a742c !important;
+    box-shadow: 0 7px 16px rgba(20,45,63,.15) !important;
+}
+.af-main-nav.nav-collapsed .af-nav-collapse {
+    bottom: -25px !important; width: 46px !important; height: 26px !important;
+    border: 1px solid rgba(30,70,99,.17) !important;
+    border-top: 0 !important;
+    background: linear-gradient(180deg, #fff, #edf2f5) !important;
+}
+.af-main-nav.nav-collapsed .af-nav-collapse:hover { width: 52px !important; }
+.af-main-nav.nav-collapsed { box-shadow: none !important; }
+
+/* Panel desplegable móvil con entrada suave */
+@media (max-width: 760px) {
+    .af-nav-shell { justify-content: flex-end; }
+    button.af-menu-toggle, button.burger-menu.af-menu-toggle { margin-right: 2px !important; }
+    .af-menu {
+        padding: 10px !important;
+        border: 1px solid rgba(30,70,99,.12) !important;
+        border-radius: 16px !important;
+        background: rgba(252,253,254,.97) !important;
+        box-shadow: 0 18px 42px rgba(20,45,63,.19), 0 2px 8px rgba(20,45,63,.05) !important;
+        transform-origin: top right;
+    }
+    .af-menu li a { min-height: 44px; border-radius: 11px; }
+    .af-menu li a::after { background: #b28a3b; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .af-main-nav, .af-menu li a, .af-menu li a i, .af-menu-toggle,
+    .af-menu-toggle span, .af-nav-collapse { transition: none !important; animation: none !important; }
+}
+</style>
+
+<footer>
         <p>&copy; 2026 Asociación de Formación Holística Andina. 
             Todos los derechos reservados. 
             | <a href="#">Política de Privacidad</a></p>
@@ -3052,6 +3386,175 @@ header {
 
 
 
+
+
+
+
+
+
+
+
+
+
+<style id="af-responsive-hamburger-final">
+/* Escritorio: navegación horizontal limpia, sin botón hamburguesa. */
+@media (min-width: 761px) {
+    .af-main-nav .af-menu-toggle,
+    .af-main-nav button.af-menu-toggle,
+    .af-main-nav button.burger-menu.af-menu-toggle {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .af-main-nav .af-nav-shell {
+        justify-content: center !important;
+    }
+
+    .af-main-nav .af-menu {
+        display: flex !important;
+    }
+}
+
+/* Móviles y tabletas pequeñas: hamburguesa centrada en la barra de navegación. */
+@media (max-width: 760px) {
+    .af-main-nav .af-nav-shell {
+        position: relative !important;
+        width: 100%;
+        min-height: 48px;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .af-main-nav .af-menu-toggle,
+    .af-main-nav button.af-menu-toggle,
+    .af-main-nav button.burger-menu.af-menu-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        position: relative !important;
+        inset: auto !important;
+        margin: 0 auto !important;
+        flex: 0 0 48px !important;
+        z-index: 1004 !important;
+    }
+
+    .af-main-nav .af-menu {
+        left: 12px !important;
+        right: 12px !important;
+        top: calc(100% + 8px) !important;
+        width: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Mantener el tirador para plegar la barra separado del botón central. */
+    .af-main-nav .af-nav-collapse {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .af-main-nav *,
+    .af-main-nav *::before,
+    .af-main-nav *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* Navegación entre secciones: desplazamiento fluido y estados activos elegantes */
+html { scroll-behavior: smooth; }
+.af-main-nav { scroll-margin-top: 90px; }
+.af-menu li a { scroll-margin-top: 100px; }
+.af-menu li a.is-current {
+    color: #173b56 !important;
+    background: linear-gradient(135deg, rgba(30,70,99,.09), rgba(178,138,59,.09)) !important;
+    border-color: rgba(178,138,59,.30) !important;
+    box-shadow: 0 4px 14px rgba(30,70,99,.07) !important;
+}
+.af-menu li a.is-current::after { transform: scaleX(1) !important; }
+.af-menu li a.is-current i { color: #a17a2e !important; opacity: 1; }
+@media (max-width: 760px) {
+    .af-menu { transform-origin: top center; }
+    .af-menu.active { animation: afMenuSmoothIn .34s cubic-bezier(.22,.75,.25,1) both !important; }
+    .af-menu.active li { animation: afMenuItemIn .32s cubic-bezier(.22,.75,.25,1) both; }
+    .af-menu.active li:nth-child(1) { animation-delay: .025s; }
+    .af-menu.active li:nth-child(2) { animation-delay: .045s; }
+    .af-menu.active li:nth-child(3) { animation-delay: .065s; }
+    .af-menu.active li:nth-child(4) { animation-delay: .085s; }
+    .af-menu.active li:nth-child(5) { animation-delay: .105s; }
+    .af-menu.active li:nth-child(6) { animation-delay: .125s; }
+    .af-menu.active li:nth-child(7) { animation-delay: .145s; }
+    .af-menu.active li:nth-child(8) { animation-delay: .165s; }
+    .af-menu.active li:nth-child(9) { animation-delay: .185s; }
+}
+@keyframes afMenuSmoothIn {
+    from { opacity: 0; transform: translateY(-9px) scale(.985); filter: blur(2px); }
+    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes afMenuItemIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    .af-menu.active, .af-menu.active li { animation: none !important; }
+}
+</style>
+
+
+<script id="af-smooth-section-navigation">
+(function () {
+    function initAndinaSmoothNavigation() {
+        var nav = document.querySelector('.af-main-nav');
+        var menu = document.querySelector('.af-main-nav .af-menu');
+        if (!nav || !menu || menu.dataset.smoothNavigationReady === 'true') return;
+        menu.dataset.smoothNavigationReady = 'true';
+        var links = Array.prototype.slice.call(menu.querySelectorAll('a[href*="#"]'));
+
+        function closeMobileMenu() {
+            if (window.innerWidth > 760) return;
+            menu.classList.remove('active');
+            var toggle = nav.querySelector('.af-menu-toggle');
+            if (toggle) {
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Abrir menú');
+            }
+        }
+
+        links.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                var href = link.getAttribute('href');
+                if (!href || href.charAt(0) !== '#') return;
+                var id;
+                try { id = decodeURIComponent(href.slice(1)); }
+                catch (e) { id = href.slice(1); }
+                var target = document.getElementById(id);
+                if (!target) return;
+                event.preventDefault();
+                links.forEach(function (item) {
+                    item.classList.remove('is-current');
+                    item.removeAttribute('aria-current');
+                });
+                link.classList.add('is-current');
+                link.setAttribute('aria-current', 'location');
+                closeMobileMenu();
+                var navHeight = nav.getBoundingClientRect().height;
+                var targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+                window.scrollTo({ top: Math.max(0, targetTop), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState(null, '', '#' + encodeURIComponent(id).replace(/%20/g, '%20'));
+                }
+            });
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAndinaSmoothNavigation);
+    else initAndinaSmoothNavigation();
+})();
+</script>
 
 
 
